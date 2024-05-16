@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/amstronglandeza21/my-react-app.git/static/css/main.b8e7dca7.css",
+    "main.js": "/amstronglandeza21/my-react-app.git/static/js/main.fa8d068b.js",
+    "static/js/453.74cd515d.chunk.js": "/amstronglandeza21/my-react-app.git/static/js/453.74cd515d.chunk.js",
+    "index.html": "/amstronglandeza21/my-react-app.git/index.html",
+    "main.b8e7dca7.css.map": "/amstronglandeza21/my-react-app.git/static/css/main.b8e7dca7.css.map",
+    "main.fa8d068b.js.map": "/amstronglandeza21/my-react-app.git/static/js/main.fa8d068b.js.map",
+    "453.74cd515d.chunk.js.map": "/amstronglandeza21/my-react-app.git/static/js/453.74cd515d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8e7dca7.css",
+    "static/js/main.fa8d068b.js"
+  ]
+}
