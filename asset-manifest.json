@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/amstronglandeza21/refers.git/static/css/main.b8e7dca7.css",
-    "main.js": "/amstronglandeza21/refers.git/static/js/main.834ee1fe.js",
-    "static/js/453.74cd515d.chunk.js": "/amstronglandeza21/refers.git/static/js/453.74cd515d.chunk.js",
-    "index.html": "/amstronglandeza21/refers.git/index.html",
-    "main.b8e7dca7.css.map": "/amstronglandeza21/refers.git/static/css/main.b8e7dca7.css.map",
-    "main.834ee1fe.js.map": "/amstronglandeza21/refers.git/static/js/main.834ee1fe.js.map",
-    "453.74cd515d.chunk.js.map": "/amstronglandeza21/refers.git/static/js/453.74cd515d.chunk.js.map"
+    "main.css": "/refers/static/css/main.b8e7dca7.css",
+    "main.js": "/refers/static/js/main.7d0cf74d.js",
+    "static/js/453.74cd515d.chunk.js": "/refers/static/js/453.74cd515d.chunk.js",
+    "index.html": "/refers/index.html",
+    "main.b8e7dca7.css.map": "/refers/static/css/main.b8e7dca7.css.map",
+    "main.7d0cf74d.js.map": "/refers/static/js/main.7d0cf74d.js.map",
+    "453.74cd515d.chunk.js.map": "/refers/static/js/453.74cd515d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b8e7dca7.css",
-    "static/js/main.834ee1fe.js"
+    "static/js/main.7d0cf74d.js"
   ]
 }
