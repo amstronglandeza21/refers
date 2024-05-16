@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import './App.css'; 
+import IllustrationSVG from './Illustration.svg'; // Import the SVG file
+import './App.css';
 
 const App = () => {
   const [referrerID, setReferrerID] = useState('');
@@ -54,7 +55,6 @@ const App = () => {
       setModalShow(true);
     }
   };
-  
 
   return (
     <div className="refer-page-container">
@@ -65,7 +65,7 @@ const App = () => {
             <div className="row">
               <div className="col-md-6">
                 <Form.Group controlId="referrerID">
-                  <Form.Label>Referreral Code:</Form.Label>
+                  <Form.Label>Referral Code:</Form.Label>
                   <Form.Control type="text" value={referrerID} onChange={(e) => setReferrerID(e.target.value)} />
                 </Form.Group>
                 <div className="row">
@@ -104,6 +104,9 @@ const App = () => {
             </div>
             <Button variant="danger" onClick={handleSubmit} className="mt-3">Submit</Button>
           </Form>
+        </div>
+        <div className="col-md-6">
+          <img src={IllustrationSVG} alt="Illustration" className="illustration-svg" />
         </div>
       </div>
 
