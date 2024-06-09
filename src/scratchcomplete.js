@@ -16,7 +16,6 @@ const App = () => {
   const [courses, setCourses] = useState([]);
   const [strands, setStrands] = useState([]);
   const [tesdaCourses, setTesdaCourses] = useState([]);
-  const [relationships, setRelationships] = useState([]);
   const [studentLevel, setStudentLevel] = useState('');
   const [modalMessage, setModalMessage] = useState('');
   const [modalShow, setModalShow] = useState(false);
@@ -62,7 +61,7 @@ const App = () => {
       }
     };
 
-    const fetchTesda = async () => {
+    const fetchTesdaCourses = async () => {
       try {
         const response = await fetch('https://script.google.com/macros/s/AKfycby-wPsbelJ6wjm6mJwsjL7hltt6C_pCOPW5yobt02tEIE3ZdFPxNQcPsJKNrMZICeOF/exec?action=getTESDA');
         if (!response.ok) {
@@ -71,9 +70,9 @@ const App = () => {
         const data = await response.json();
         console.log('Fetched TESDA courses data:', data);
 
-        if (data.tesda && Array.isArray(data.tesda) && data.tesda.length > 0) {
-          console.log('Setting TESDA courses:', data.tesda);
-          setTesdaCourses(data.tesda);
+        if (data.tesdaCourses && Array.isArray(data.tesdaCourses) && data.tesdaCourses.length > 0) {
+          console.log('Setting TESDA courses:', data.tesdaCourses);
+          setTesdaCourses(data.tesdaCourses);
         } else {
           console.error('No TESDA courses found or response format is incorrect.');
         }
@@ -82,30 +81,9 @@ const App = () => {
       }
     };
 
-    const fetchRelationships = async () => {
-      try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycby-wPsbelJ6wjm6mJwsjL7hltt6C_pCOPW5yobt02tEIE3ZdFPxNQcPsJKNrMZICeOF/exec?action=getRelationships');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log('Fetched relationships data:', data);
-  
-        if (data.relationships && Array.isArray(data.relationships) && data.relationships.length > 0) {
-          console.log('Setting relationships:', data.relationships);
-          setRelationships(data.relationships);
-        } else {
-          console.error('No relationships found or response format is incorrect.');
-        }
-      } catch (error) {
-        console.error('Error fetching relationships:', error);
-      }
-    };
-
     fetchCourses();
     fetchStrands();
-    fetchTesda();
-    fetchRelationships();
+    fetchTesdaCourses();
   }, []);
 
   const handleSubmit = async () => {
@@ -149,23 +127,23 @@ const App = () => {
 
   const handleStudentLevelChange = (e) => {
     setStudentLevel(e.target.value);
-    setCourse(''); 
+    setCourse(''); // Reset selected course when student level changes
   };
 
   return (
     <div className="refer-page-container">
       <div className="row justify-content-center">
-        <div className="col-md-12 refer-form">
+        <div className="col-md-7 refer-form">
           <h1 className="text-center mb-4">Refer Now</h1>
           <Form>
             <div className="row">
-              <div className="col-md-12">
+              <div className="col-md-6">
                 <Form.Group controlId="referrerID">
                   <Form.Label>Referral Code:</Form.Label>
                   <Form.Control type="text" value={referrerID} onChange={(e) => setReferrerID(e.target.value)} />
                 </Form.Group>
               </div>
-              <div className="col-md-12">
+              <div className="col-md-6">
                 <Form.Group controlId="referredFirstName">
                   <Form.Label>First Name:</Form.Label>
                   <Form.Control type="text" value={referredFirstName} onChange={(e) => setReferredFirstName(e.target.value)} />
@@ -173,13 +151,13 @@ const App = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-12">
+              <div className="col-md-6">
                 <Form.Group controlId="referredLastName">
                   <Form.Label>Last Name:</Form.Label>
                   <Form.Control type="text" value={referredLastName} onChange={(e) => setReferredLastName(e.target.value)} />
                 </Form.Group>
               </div>
-              <div className="col-md-12">
+              <div className="col-md-6">
                 <Form.Group controlId="email">
                   <Form.Label>Email:</Form.Label>
                   <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -206,19 +184,19 @@ const App = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-12">
+              <div className="col-md-6">
                 <Form.Group controlId="studentLevel">
                   <Form.Label>Student Level:</Form.Label>
                   <Form.Control as="select" value={studentLevel} onChange={handleStudentLevelChange}>
-                    <option value="">Select a student level</option>
+                    <option value="">Select student level</option>
                     <option value="College">College</option>
-                    <option value="SHS">SHS</option>
+                    <option value="Senior High">Senior High</option>
                     <option value="TESDA">TESDA</option>
                   </Form.Control>
                 </Form.Group>
               </div>
-              <div className="col-md-12">
-                {studentLevel === 'College' && (
+              <div className="col-md-6">
+                {studentLevel === "College" && (
                   <Form.Group controlId="course">
                     <Form.Label>Course:</Form.Label>
                     <Form.Control as="select" value={course} onChange={(e) => setCourse(e.target.value)}>
@@ -229,8 +207,8 @@ const App = () => {
                     </Form.Control>
                   </Form.Group>
                 )}
-                {studentLevel === 'SHS' && (
-                  <Form.Group controlId="course">
+                {studentLevel === "Senior High" && (
+                  <Form.Group controlId="strand">
                     <Form.Label>Strand:</Form.Label>
                     <Form.Control as="select" value={course} onChange={(e) => setCourse(e.target.value)}>
                       <option value="">Select a strand</option>
@@ -240,8 +218,8 @@ const App = () => {
                     </Form.Control>
                   </Form.Group>
                 )}
-                {studentLevel === 'TESDA' && (
-                  <Form.Group controlId="course">
+                {studentLevel === "TESDA" && (
+                  <Form.Group controlId="tesdaCourse">
                     <Form.Label>TESDA Course:</Form.Label>
                     <Form.Control as="select" value={course} onChange={(e) => setCourse(e.target.value)}>
                       <option value="">Select a TESDA course</option>
@@ -272,3 +250,4 @@ const App = () => {
 };
 
 export default App;
+

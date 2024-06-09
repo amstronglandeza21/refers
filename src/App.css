@@ -1,32 +1,132 @@
-/* App.css */
-.refer-page-container {
-  padding: 20px;
-}
-
-.refer-form {
-  margin-bottom: 20px;
-}
-
-/* Center the form */
-.row.justify-content-center {
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-/* Adjust the size of the SVG and make it responsive */
-.illustration-svg {
-  max-width: 100%;
-  height: auto;
-  width: 80%; /* Adjust as needed */
-  margin-left: 20px; /* Add some margin between the form and the SVG */
-  fill: red; 
+.refer-page-container {
+  width: 100%;
+  max-width: 700px; /* Increase the max-width to prevent resizing */
+  padding: 20px;
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+
+.refer-form-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+button.mt-3 {
+  width: 100%;
+}
+
+form .form-group,
+form .form-control {
+  width: 100%;
 }
 
 @media (max-width: 768px) {
-  /* Adjust SVG size for smaller screens */
-  .illustration-svg {
-    width: 60%; /* Adjust as needed for smaller screens */
-    margin-left: 0; /* Remove margin for smaller screens */
-    margin-top: 20px; /* Add margin to separate from the form */
+  .refer-page-container {
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  .refer-form-container {
+    padding: 20px;
+  }
+
+  select.form-control {
+    width: calc(100% - 32px); /* Adjust width to accommodate the arrow */
+    margin: 1px 0;
+    pointer-events: none; /* Disable pointer events to prevent dropdown */
+    background-color: #f8f9fa; /* Change background color to match */
+    border: 1px solid #ced4da; /* Add border to mimic normal input */
+    border-radius: 4px; /* Add border radius */
   }
 }
+
+/* Style the select element */
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded ends */
+  background-color: transparent; /* Make background transparent */
+  appearance: none; /* Remove default arrow icon */
+}
+
+/* Style the select when focused */
+select:focus {
+  border-color: #007bff; /* Change border color when focused */
+}
+
+/* Style the select options */
+select option {
+  background-color: #fff; /* Background color of options */
+}
+
+/* Style the select options when hovered */
+select option:hover {
+  background-color: #f0f0f0; /* Background color of options on hover */
+}
+
+/* Style the select options when selected */
+select option:checked {
+  background-color: #007bff; /* Background color of selected option */
+  color: #fff; /* Text color of selected option */
+}
+
+/* WebKit (Safari/Chrome) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px; /* Rounded ends */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Hide scrollbar when not scrolling */
+::-webkit-scrollbar-thumb:vertical {
+  transition: background-color 0.5s;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  transition: background-color 0.5s;
+}
+
+/* Hide scrollbar when not scrolling */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Show scrollbar on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
